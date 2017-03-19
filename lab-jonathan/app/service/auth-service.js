@@ -57,7 +57,7 @@ function authService($q, $log, $http, $window){
       }
     };
     $log.log('data', user);
-    return $http.post(url, user, config)
+    return $https.post(url, user, config)
     .then( res => {
       $log.log('success', res.data);
       return setToken(res.data);
