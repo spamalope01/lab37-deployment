@@ -57,7 +57,7 @@ function authService($q, $log, $http, $window){
       }
     };
     $log.log('data', user);
-    return $https.post(url, user, config)
+    return $http.post(url, user, config)
     .then( res => {
       $log.log('success', res.data);
       return setToken(res.data);
@@ -77,6 +77,7 @@ function authService($q, $log, $http, $window){
     $log.debug('authService.login()');
 
     let url = `${__API_URL__}/api/login`;
+    console.log('api url', __API_URL__);
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
